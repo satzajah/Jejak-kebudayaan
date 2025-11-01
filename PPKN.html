@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jejak Kebudayaan - Sumatera Barat</title>
+  <meta name="description" content="Portal yang menampilkan kekayaan kebudayaan Sumatera Barat: tarian, musik, kuliner, tradisi, dan acara lokal.">
+  <style>
+    :root{--accent:#0b6d44;--muted:#6b6b6b;--bg:#fbfbfb}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0;background:var(--bg);color:#111}
+    header{
+      background: linear-gradient(90deg, rgba(11,109,68,0.85), rgba(8,92,57,0.85)),
+                  url('https://media.istockphoto.com/id/108224973/photo/gunung-bromo-volcano-indonesia.webp?a=1&b=1&s=612x612&w=0&k=20&c=goSrMvC5QzVjREbUE2PuN_UHz3igd0KKhWNckTvVJ0o=')
+                  center/cover no-repeat;
+      color:#fff;
+      padding:28px 20px;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    nav{display:flex;gap:18px;align-items:center}
+    .logo{font-weight:700;font-size:20px}
+    .navlinks{margin-left:auto;display:flex;gap:14px}
+    .navlinks a{color:rgba(255,255,255,0.95);text-decoration:none;padding:8px 12px;border-radius:8px}
+    .navlinks a:hover{background:rgba(255,255,255,0.06)}
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center;padding:48px 0}
+    .hero h1{font-size:32px;margin:0 0 8px}
+    .hero p{margin:0;color:#e6f3ea}
+    .btn{display:inline-block;background:#fff;color:var(--accent);padding:10px 16px;border-radius:12px;font-weight:600;text-decoration:none}
+    section{padding:36px 0}
+    h2{margin:0 0 14px}
+    .grid{display:grid;gap:18px}
+    .cards{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+    .card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(12,12,12,0.06)}
+    .muted{color:var(--muted)}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef7f1;color:var(--accent);font-weight:600;font-size:13px}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+    .gallery img{width:100%;height:100px;object-fit:cover;border-radius:8px;cursor:pointer}
+    footer{padding:24px 0;background:#fff;border-top:1px solid #eee}
+    @media(min-width:900px){.hero{grid-template-columns:1fr 420px}.hero h1{font-size:40px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Jejak <span style="color:#a7f3d0">Kebudayaan</span></div>
+        <div class="navlinks">
+          <a href="#home">Beranda</a>
+          <a href="#daerah">Budaya Daerah</a>
+          <a href="#musik-tari">Musik & Tari</a>
+          <a href="#kuliner">Kuliner</a>
+          <a href="#galeri">Galeri</a>
+          <a href="#kontak">Kontak</a>
+        </div>
+      </nav>
+
+      <div class="hero" id="home">
+        <div>
+          <h1>Eksplorasi Budaya Sumatera Barat</h1>
+          <p>Menelusuri keindahan tradisi Minangkabau — dari rumah adat, musik, hingga kuliner yang melegenda.</p>
+          <p style="margin-top:16px"><a class="btn" href="#daerah">Jelajahi Sekarang</a></p>
+        </div>
+        <div class="card" style="background:linear-gradient(180deg,#e40000,#f7fff8)">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="flex:1">
+              <strong>Artikel Pilihan</strong>
+              <p class="muted" style="margin:6px 0 0">Rumah Gadang — Simbol kemegahan dan filosofi kehidupan masyarakat Minangkabau.</p>
+            </div>
+            <div style="width:88px;height:88px;background:url('https://images.unsplash.com/photo-1714702769194-9be6068abb6c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cnVtYWglMjBnYWRhbmd8ZW58MHx8MHx8fDA=&auto=format&fit=crop&q=60&w=500') center/cover;border-radius:10px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="daerah">
+      <h2>Kebudayaan Daerah Sumatera Barat</h2>
+      <p class="muted">Kekayaan tradisi dan nilai luhur masyarakat Minangkabau.</p>
+      <div class="grid cards" style="margin-top:14px">
+        <article class="card">
+          <div class="tag">Rumah Adat</div>
+          <h3>Rumah Gadang</h3>
+          <p class="muted">Rumah adat khas Minangkabau dengan atap bergonjong yang melambangkan tanduk kerbau, simbol kebijaksanaan.</p>
+        </article>
+        <article class="card">
+          <div class="tag">Upacara Adat</div>
+          <h3>Arat Sabulungan</h3>
+          <p class="muted">Kepercayaan asli Suku Mentawai yang menghormati alam dan roh leluhur.</p>
+        </article>
+        <article class="card">
+          <div class="tag">Pakaian</div>
+          <h3>Bundo Kanduang</h3>
+          <p class="muted">Busana adat wanita Minang yang mencerminkan kehormatan dan peran penting perempuan dalam adat.</p>
+        </article>
+        <article class="card">
+          <div class="tag">Festival</div>
+          <h3>Festival Tabuik</h3>
+          <p class="muted">Perayaan tradisi masyarakat Pariaman untuk mengenang cucu Nabi Muhammad SAW dengan semangat gotong royong.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="musik-tari">
+      <h2>Musik & Tari Minangkabau</h2>
+      <p class="muted">Irama dan gerak yang menyatu dalam kehidupan masyarakat Sumatera Barat.</p>
+      <div class="grid cards" style="margin-top:14px">
+        <div class="card">
+          <h3>Saluang</h3>
+          <p class="muted">Seruling bambu tradisional Minang yang dimainkan dengan teknik pernapasan sirkular.</p>
+        </div>
+        <div class="card">
+          <h3>Talempong</h3>
+          <p class="muted">Alat musik pukul dari logam, dimainkan dalam upacara adat dan penyambutan tamu.</p>
+        </div>
+        <div class="card">
+          <h3>Tari Piring</h3>
+          <p class="muted">Tarian energik yang menggunakan piring di tangan penari — simbol kerja keras dan rasa syukur.</p>
+        </div>
+        <div class="card">
+          <h3>Tari Payung</h3>
+          <p class="muted">Tarian yang menggambarkan kasih sayang dan perlindungan dalam hubungan sosial.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kuliner">
+      <h2>Kuliner Khas Minangkabau</h2>
+      <p class="muted">Rasa autentik dari tanah Sumatera Barat yang mendunia.</p>
+      <div class="grid cards" style="margin-top:14px">
+        <div class="card">
+          <h3>Rendang</h3>
+          <p class="muted">Dikenal sebagai makanan terenak di dunia — lambang kesabaran dan kekayaan bumbu Minang.</p>
+        </div>
+        <div class="card">
+          <h3>Dendeng Balado</h3>
+          <p class="muted">Daging sapi tipis digoreng kering dengan sambal merah pedas khas Minang.</p>
+        </div>
+        <div class="card">
+          <h3>Sate Padang</h3>
+          <p class="muted">Sate dengan kuah kental berbumbu kuat — ikon kuliner Sumatera Barat.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeri">
+      <h2>Galeri Foto</h2>
+      <p class="muted">Klik gambar untuk memperbesar.</p>
+      <div class="gallery" style="margin-top:12px">
+        <img src="https://images.unsplash.com/photo-1714702769194-9be6068abb6c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cnVtYWglMjBnYWRhbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500" alt="Rumah Gadang" onclick="openModal(this.src)">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe3dCdunJCq8gLwWCdbiWBeqI1VVKZYxH8aw&s" alt="Tari Piring" onclick="openModal(this.src)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Saluang_flute.jpg" alt="Saluang" onclick="openModal(this.src)">
+        <img src="https://media.istockphoto.com/id/1418639652/photo/malaysian-traditional-food-nasi-lemak-dishes-at-food-stall.webp?a=1&b=1&s=612x612&w=0&k=20&c=jxHmzf1P4401zNmEY4QvP0ONMCQYNy7akce-l2DEKoU=" alt="Rendang" onclick="openModal(this.src)">
+      </div>
+    </section>
+
+    <section id="events">
+      <h2>Acara & Festival Sumatera Barat</h2>
+      <p class="muted">Tradisi dan perayaan budaya yang terus hidup di tanah Minangkabau.</p>
+      <div class="grid cards" style="margin-top:14px">
+        <div class="card">
+          <strong>Festival Tabuik — 1 Muharram</strong>
+          <p class="muted">Pawai dan pertunjukan budaya di Pariaman yang penuh warna dan makna sejarah.</p>
+        </div>
+        <div class="card">
+          <strong>Pesta Budaya Minangkabau — November 2025</strong>
+          <p class="muted">Ajang tahunan menampilkan musik, tari, dan kuliner tradisional dari seluruh Sumatera Barat.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <h2>Kontak & Bergabung</h2>
+      <p class="muted">Ingin berkontribusi untuk pelestarian budaya Sumatera Barat? Kirimkan ide atau artikelmu!</p>
+      <div class="card" style="margin-top:12px">
+        <form onsubmit="event.preventDefault();alert('Terima kasih — ini demo, form belum terkoneksi.')">
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <input required placeholder="Nama" style="flex:1;padding:10px;border-radius:8px;border:1px solid #e6e6e6">
+            <input required placeholder="Email" style="flex:1;padding:10px;border-radius:8px;border:1px solid #e6e6e6">
+          </div>
+          <textarea required placeholder="Pesan / Kiriman" style="width:100%;margin-top:10px;padding:10px;border-radius:8px;border:1px solid #e6e6e6;min-height:100px"></textarea>
+          <button class="btn" style="margin-top:10px">Kirim</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div>&copy; 2025 Jejak Kebudayaan — Budaya Sumatera Barat</div>
+      <div class="muted">Dibuat dengan ❤️ untuk pelestarian budaya Minangkabau.</div>
+    </div>
+  </footer>
+
+  <script>
+    function openModal(src){
+      const modal=document.createElement('div');
+      modal.style.position='fixed';modal.style.inset=0;modal.style.background='rgba(0,0,0,0.75)';
+      modal.style.display='flex';modal.style.alignItems='center';modal.style.justifyContent='center';
+      modal.style.zIndex=9999;
+      const img=document.createElement('img');
+      img.src=src;img.style.maxWidth='90%';img.style.maxHeight='90%';img.style.borderRadius='8px';
+      modal.appendChild(img);
+      modal.onclick=()=>document.body.removeChild(modal);
+      document.body.appendChild(modal);
+    }
+  </script>
+</body>
+</html>
