@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jejak Kebudayaan - Sumatera Barat</title>
+  <meta name="description" content="Portal yang menampilkan kekayaan kebudayaan Sumatera Barat: tarian, musik, kuliner, tradisi, dan acara lokal.">
+  <style>
+    :root{--accent:#0b6d44;--muted:#6b6b6b;--bg:#fbfbfb}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:var(--bg);color:#111;overflow-x:hidden}
+    header{
+      background:linear-gradient(90deg,rgba(11,109,68,0.85),rgba(8,92,57,0.85)),
+      url('https://upload.wikimedia.org/wikipedia/commons/f/fd/Rumah_Gadang.jpg') center/cover no-repeat;
+      color:#fff;padding:28px 20px;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .logo{font-weight:700;font-size:20px}
+    .navlinks{margin-left:auto;display:flex;gap:14px;flex-wrap:wrap}
+    .navlinks a{color:rgba(255,255,255,0.95);text-decoration:none;padding:8px 12px;border-radius:8px;transition:.2s}
+    .navlinks a:hover{background:rgba(255,255,255,0.08)}
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center;padding:48px 0}
+    .hero h1{font-size:32px;margin:0 0 8px}
+    .hero p{margin:0;color:#e6f3ea}
+    .btn{display:inline-block;background:#fff;color:var(--accent);padding:10px 16px;border-radius:12px;font-weight:600;text-decoration:none;cursor:pointer}
+    .btn:hover{background:#e8fff0}
+    section{padding:36px 0}
+    h2{margin:0 0 14px}
+    .grid{display:grid;gap:18px}
+    .cards{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(12,12,12,0.06);transition:.25s;position:relative}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+    .card img{width:100%;height:auto;object-fit:cover;border-radius:8px;margin-bottom:10px}
+    .muted{color:var(--muted)}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef7f1;color:var(--accent);font-weight:600;font-size:13px}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+    .gallery img{width:100%;height:auto;object-fit:cover;border-radius:8px;cursor:pointer;transition:.3s}
+    .gallery img:hover{transform:scale(1.04)}
+    footer{padding:24px 0;background:#fff;border-top:1px solid #eee;text-align:center}
+    
+    /* Notes (popup detail budaya) */
+    .overlay{
+      position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+      background:rgba(0,0,0,0.5);backdrop-filter:blur(2px);opacity:0;pointer-events:none;
+      transition:opacity 1s ease;z-index:10000;
+    }
+    .overlay.active{opacity:1;pointer-events:auto;}
+    .note{
+      background:linear-gradient(180deg,#ffffff,#f7fff8);border-radius:14px;
+      width:calc(100% - 40px);max-width:820px;padding:22px;
+      box-shadow:0 18px 50px rgba(6,40,20,0.18);
+      transform:translateY(16px);opacity:0;transition:transform 1s ease, opacity 1s ease;
+      position:relative;
+    }
+    .overlay.active .note{transform:translateY(0);opacity:1;}
+    .note img{width:100%;border-radius:10px;margin-bottom:14px;display:block}
+    .note h3{margin:0 0 8px;color:var(--accent)}
+    .note p{color:#222;line-height:1.5;margin-bottom:10px}
+    .close-btn{
+      background:var(--accent);color:#fff;border:none;padding:8px 14px;border-radius:8px;
+      cursor:pointer;font-weight:600;position:absolute;right:18px;top:18px;
+    }
+    .note .meta{font-size:13px;color:var(--muted);margin-bottom:12px}
+    /* responsive */
+    @media(min-width:900px){.hero{grid-template-columns:1fr 420px}.hero h1{font-size:40px}}
+    @media(max-width:600px){.container{padding:14px}header{padding:20px 14px;text-align:center}.hero{padding:32px 0}.hero h1{font-size:26px;line-height:1.3}.hero p{font-size:15px}.card img,.gallery img{height:auto}.navlinks{justify-content:center;margin-top:10px}.card{padding:14px}section{padding:28px 0}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Jejak <span style="color:#a7f3d0">Kebudayaan</span></div>
+        <div class="navlinks">
+          <a href="#home">Beranda</a>
+          <a href="#daerah">Budaya Daerah</a>
+          <a href="#musik-tari">Musik & Tari</a>
+          <a href="#kuliner">Kuliner</a>
+          <a href="#galeri">Galeri</a>
+          <a href="#kontak">Kontak</a>
+        </div>
+      </nav>
+
+      <div class="hero" id="home">
+        <div>
+          <h1>Eksplorasi Budaya Sumatera Barat</h1>
+          <p>Menelusuri keindahan tradisi Minangkabau — dari rumah adat, musik, hingga kuliner yang melegenda.</p>
+          <p style="margin-top:16px"><a class="btn" href="#daerah">Jelajahi Sekarang</a></p>
+        </div>
+        <div class="card" style="background:linear-gradient(180deg,#ffffff,#f8fff9)">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Rumah_Gadang.jpg" alt="Rumah Gadang">
+          <strong>Artikel Pilihan</strong>
+          <p class="muted">Rumah Gadang — simbol kemegahan dan filosofi kehidupan masyarakat Minangkabau.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="daerah">
+      <h2>Kebudayaan Daerah Sumatera Barat</h2>
+      <div class="grid cards">
+        <!-- Rumah Gadang -->
+        <article class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Rumah_Gadang.jpg" alt="Rumah Gadang">
+          <div class="tag">Rumah Adat</div>
+          <h3>Rumah Gadang</h3>
+          <p class="muted">Rumah adat khas Minangkabau dengan atap bergonjong melambangkan tanduk kerbau.</p>
+          <button class="btn" onclick="openNote('rumahgadang')">Selengkapnya</button>
+        </article>
+
+        <!-- Festival Tabuik -->
+        <article class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tabuik_festival.jpg" alt="Tabuik Festival">
+          <div class="tag">Festival</div>
+          <h3>Festival Tabuik</h3>
+          <p class="muted">Tradisi Pariaman yang penuh warna, mengenang cucu Nabi Muhammad SAW dengan semangat gotong royong.</p>
+          <button class="btn" onclick="openNote('tabuik')">Selengkapnya</button>
+        </article>
+
+        <!-- Arat Sabulungan (Mentawai) -->
+        <article class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Saluang_flute.jpg" alt="Arat Sabulungan">
+          <div class="tag">Upacara Adat</div>
+          <h3>Arat Sabulungan</h3>
+          <p class="muted">Kepercayaan asli Suku Mentawai yang menghormati alam dan roh leluhur.</p>
+          <button class="btn" onclick="openNote('arat')">Selengkapnya</button>
+        </article>
+
+        <!-- Talempong -->
+        <article class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Talempong_-_Sumatra_Barat.jpg" alt="Talempong">
+          <div class="tag">Musik</div>
+          <h3>Talempong</h3>
+          <p class="muted">Alat musik pukul logam yang mengiringi upacara adat dan tari Minangkabau.</p>
+          <button class="btn" onclick="openNote('talempong')">Selengkapnya</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="musik-tari">
+      <h2>Musik & Tari Minangkabau</h2>
+      <div class="grid cards">
+        <!-- Saluang -->
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Saluang_flute.jpg" alt="Saluang">
+          <h3>Saluang</h3>
+          <p class="muted">Seruling bambu tradisional Minang yang dimainkan dengan teknik pernapasan sirkular.</p>
+          <button class="btn" onclick="openNote('saluang')">Selengkapnya</button>
+        </div>
+
+        <!-- Talempong (duplicate card is okay; separate detail) -->
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Talempong_diatonis_2.jpg" alt="Talempong">
+          <h3>Talempong</h3>
+          <p class="muted">Alat musik pukul dari logam dimainkan dalam upacara adat dan penyambutan tamu.</p>
+          <button class="btn" onclick="openNote('talempong')">Selengkapnya</button>
+        </div>
+
+        <!-- Tari Piring -->
+        <div class="card">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSgV-ZgJrJXRLqN-Fm6Rh9jjdt7myKa5r6RiJMBAQtT-zHrojzoJwiK4Eawu4KhW31LJo0vFzv3VbP8V15C0JQYbluwjsLDPY2J0MgtEVsfmFKIE8o5tileMtj7I-eDji-HxddW0Wqrs4/w1200-h630-p-k-no-nu/Sejarah-Asal-Usul-Tari-Piring-serta-Perkembangannya-Kumpulan-Sejarah.png" alt="Tari Piring">
+          <h3>Tari Piring</h3>
+          <p class="muted">Tarian energik yang menggunakan piring di tangan penari — simbol kerja keras dan rasa syukur.</p>
+          <button class="btn" onclick="openNote('taripiring')">Selengkapnya</button>
+        </div>
+
+        <!-- Tari Payung -->
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Umbrella_dance.jpg/1200px-Umbrella_dance.jpg" alt="Tari Payung">
+          <h3>Tari Payung</h3>
+          <p class="muted">Tarian menggambarkan kasih sayang dan perlindungan dalam hubungan sosial.</p>
+          <button class="btn" onclick="openNote('taripayung')">Selengkapnya</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="kuliner">
+      <h2>Kuliner Khas Minangkabau</h2>
+      <div class="grid cards">
+        <div class="card">
+          <img src="https://images.tokopedia.net/img/JFrBQq/2024/3/15/889c4e43-54ae-4080-a5fb-2e2b049864e5.jpg" alt="Rendang">
+          <h3>Rendang</h3>
+          <p class="muted">Dikenal sebagai makanan terenak di dunia — lambang kesabaran dan kekayaan bumbu Minang.</p>
+          <button class="btn" onclick="openNote('rendang')">Selengkapnya</button>
+        </div>
+        <div class="card">
+          <img src="https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/07/31033559/Catat-Ini-Resep-dan-Cara-Membuat-Dendeng-Balodo-yang-Kering-dan-Renyah-.jpg" alt="Dendeng Balado">
+          <h3>Dendeng Balado</h3>
+          <p class="muted">Daging sapi tipis digoreng kering dengan sambal merah pedas khas Minang.</p>
+          <button class="btn" onclick="openNote('dendeng')">Selengkapnya</button>
+        </div>
+        <div class="card">
+          <img src="https://asset.kompas.com/crops/orQq3RlnkPNDfQgRASMWfCMppwg=/0x32:1000x699/1200x800/data/photo/2021/07/16/60f0d221ba7a6.jpeg" alt="Sate Padang">
+          <h3>Sate Padang</h3>
+          <p class="muted">Sate dengan kuah kental berbumbu kuat — ikon kuliner Sumatera Barat.</p>
+          <button class="btn" onclick="openNote('satepadang')">Selengkapnya</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeri">
+      <h2>Galeri Foto</h2>
+      <div class="gallery">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Rumah_Gadang.jpg" onclick="openModal(this.src)" alt="Rumah Gadang">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tabuik_festival.jpg" onclick="openModal(this.src)" alt="Tabuik">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Talempong_diatonis_2.jpg" onclick="openModal(this.src)" alt="Talempong">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Saluang_flute.jpg" onclick="openModal(this.src)" alt="Saluang">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Umbrella_dance.jpg/1200px-Umbrella_dance.jpg" onclick="openModal(this.src)" alt="Tari Payung">
+      </div>
+    </section>
+
+    <section id="kontak">
+      <h2>Kontak & Bergabung</h2>
+      <p class="muted">Ingin berkontribusi untuk pelestarian budaya Sumatera Barat? Kirimkan ide atau artikelmu!</p>
+      <div class="card">
+        <form onsubmit="event.preventDefault();alert('Terima kasih — ini demo, form belum terkoneksi.')">
+          <input required placeholder="Nama" style="width:100%;padding:10px;margin-bottom:8px;border-radius:8px;border:1px solid #e6e6e6">
+          <input required placeholder="Email" style="width:100%;padding:10px;margin-bottom:8px;border-radius:8px;border:1px solid #e6e6e6">
+          <textarea required placeholder="Pesan / Kiriman" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;min-height:100px"></textarea>
+          <button class="btn" style="margin-top:10px">Kirim</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>&copy; 2025 Jejak Kebudayaan — Budaya Sumatera Barat</div>
+      <div class="muted">Dibuat dengan ❤️ untuk pelestarian budaya Minangkabau.</div>
+    </div>
+  </footer>
+
+  <!-- POPUPS: one overlay per culture -->
+  <!-- Rumah Gadang -->
+  <div class="overlay" id="note-rumahgadang" aria-hidden="true">
+    <div class="note" role="dialog" aria-labelledby="rg-title">
+      <button class="close-btn" onclick="closeAllNotes()">Tutup</button>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Rumah_Gadang.jpg" alt="Rumah Gadang">
+      <h3 id="rg-title">Rumah Gadang</h3>
+      <div class="meta">Rumah adat Minangkabau — Sumatera Barat</div>
+      <p>Rumah Gadang adalah rumah adat khas masyarakat Minangkabau. Ciri utamanya adalah atap bergonjong yang menyerupai tanduk kerbau. Rumah ini berfungsi sebagai tempat tinggal bersama dan pusat kegiatan adat keluarga besar. Sistem pewarisan bersifat matrilineal — kepemilikan rumah biasanya diturunkan melalui garis perempuan.</p>
+      <p><strong>Fitur arsitektur:</strong> tiang kayu kokoh, ukiran tradisional dengan motif flora-fauna, serta ruang pemusatan adat untuk musyawarah keluarga (Ruang Adat).</p>
+    </div>
+  </div>
+
+  <!-- Tabuik -->
+  <div class="overlay" id="note-tabuik" aria-hidden="true">
+    <div class="note" role="dialog" aria-labelledby="tabuik-title">
+      <button class="close-btn" onclick="closeAllNotes()">Tutup</button>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tabuik_festival.jpg" alt="Tabuik">
+      <h3 id="tabuik-title">Festival Tabuik (Pariaman)</h3>
+      <div class="meta">Festival budaya — Pariaman, Sumatera Barat</div>
+      <p>Festival Tabuik diselenggarakan setiap tahun di Pariaman sebagai peringatan sejarah Islam yang terkait dengan gugurnya Hasan dan Husain. Warga membuat dan mengarak sebuah 'tabuik' (replika menara) yang kemudian dilarungkan ke laut. Acara ini menampilkan pawai, musik, dan gotong royong masyarakat.</p>
+      <p><strong>Makna sosial:</strong> memperkuat solidaritas komunitas dan menjaga warisan tradisi lokal.</p>
+    </div>
+  </div>
+
+  <!-- Arat Sabulungan (Mentawai) -->
+  <div class="overlay" id="note-arat" aria-hidden="true">
+    <div class="note" role="dialog" aria-labelledby="arat-title">
+      <button class="close-btn" onclick="closeAllNotes()">Tutup</button>
+      <img src="https://storage.googleapis.com/arsitagx-master-article/article-photo/109/unnamed.jpg" alt="Suku Mentawai">
+      <h3 id="arat-title">Arat Sabulungan (Suku Mentawai)</h3>
+      <div class="meta">Upacara adat — Kepulauan Mentawai (terkait Sumatera Barat region)</div>
+      <p>Upacara adat Suku Mentawai berasal dari Kepulauan Mentawai. Tradisi ini berakar dari kepercayaan Arat Sabulungan yang menekankan hubungan harmonis antara manusia, alam, dan roh. Upacara dipimpin oleh Sikerei (dukun adat) untuk menjaga keseimbangan, meminta keselamatan, menyambut anggota baru, dan merayakan peristiwa penting.</p>
+      <p><strong>Contoh upacara:</strong> Pakandei (penyambutan besan), Gurut Uma (peresmian rumah adat), Puliaijat (pembersihan uma), Sikamuri (pantangan/penuntun mutangoan).</p>
+    </div>
+  </div>
+
+  <!-- Talempong -->
+  <div class="overlay" id="note-talempong" aria-hidden="true">
+    <div class="note" role="dialog" aria-labelledby="talempong-title">
+      <button class="close-btn" onclick="closeAllNotes()">Tutup</button>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Talempong_-_Sumatra_Barat.jpg" alt="Talempong">
+      <h3 id="talempong-title">Talempong</h3>
+      <div class="meta">Alat musik tradisional — Minangkabau</div>
+      <p>Talempong adalah instrumen pukul tradisional yang terbuat dari logam dan menghasilkan bunyi khas. Biasanya dimainkan berkelompok untuk mengiringi tarian, upacara adat, dan acara penyambutan tamu. Pola ritme talempong menjadi identitas musikal masyarakat Minang.</p>
+    </div>
+  </div>
+
+  <!-- Saluang -->
+  <div class="overlay" id="note-saluang" aria-hidden="true">
+    <div class="note" role="dialog" aria-labelledby="saluang-title">
+      <button class="close-btn" onclick="closeAllNotes()">Tutup</button>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Saluang_flute.jpg" alt="Saluang">
+      <h3 id="saluang-title">Saluang</h3>
+      <div class="meta">Alat musik — Seruling bambu Minang</div>
+      <p>Saluang adalah seruling bambu tradisional yang sering dimainkan oleh masyarakat Minangkabau. Teknik permainan unik, termasuk teknik pernapasan sirkular, memungkinkan melodi panjang dan berkesinambungan. Saluang biasa mengiringi lagu-lagu tradisional dan cerita rakyat.</p>
+    </div>
+  </div>
+
+  <!-- Tari Piring -->
+  <div class="overlay" id="note-taripiring" aria-hidden="true">
+    <div class="note" role="dialog" aria-labelledby="tp-title">
+      <button class="close-btn" onclick="closeAllNotes()">Tutup</button>
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSgV-ZgJrJXRLqN-Fm6Rh9jjdt7myKa5r6RiJMBAQtT-zHrojzoJwiK4Eawu4KhW31LJo0vFzv3VbP8V15C0JQYbluwjsLDPY2J0MgtEVsfmFKIE8o5tileMtj7I-eDji-HxddW0Wqrs4/w1200-h630-p-k-no-nu/Sejarah-Asal-Usul-Tari-Piring-serta-Perkembangannya-Kumpulan-Sejarah.png" alt="Tari Piring">
+      <h3 id="tp-title">Tari Piring</h3>
+      <div class="meta">Tari tradisional — Minangkabau</div>
+      <p>Tari Piring menonjolkan kelincahan dan pengendalian alat (piring) di tangan penari. Gerakan cepat dan ritmis melambangkan rasa syukur atas hasil pertanian. Pertunjukan ini sering menjadi atraksi dalam acara adat dan festival budaya.</p>
+    </div>
+  </div>
+
+  <!-- Tari Payung -->
+  <div class="overlay" id="note-taripayung" aria-hidden="true">
+    <div class="note" role="dialog" aria-labelledby="tpayung-title">
+      <button class="close-btn" onclick="closeAllNotes()">Tutup</button>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Umbrella_dance.jpg/1200px-Umbrella_dance.jpg" alt="Tari Payung">
+      <h3 id="tpayung-title">Tari Payung</h3>
+      <div class="meta">Tarian sosial — Minangkabau</div>
+      <p>Tari Payung adalah tarian yang menampilkan payung sebagai properti simbolik. Biasanya menggambarkan kasih sayang, keharmonisan, dan perlindungan dalam relasi sosial. Gerakan lemah lembut memperlihatkan estetika dan sopan santun budaya Minang.</p>
+    </div>
+  </div>
+
+  <!-- Rendang -->
+  <div class="overlay" id="note-rendang" aria-hidden="true">
+    <div class="note" role="dialog" aria-labelledby="rendang-title">
+      <button class="close-btn" onclick="closeAllNotes()">Tutup</button>
+      <img src="https://images.tokopedia.net/img/JFrBQq/2024/3/15/889c4e43-54ae-4080-a5fb-2e2b049864e5.jpg" alt="Rendang">
+      <h3 id="rendang-title">Rendang</h3>
+      <div class="meta">Kuliner khas — Minangkabau</div>
+      <p>Rendang adalah hidangan daging yang dimasak lama dengan campuran santan dan rempah hingga kering dan pekat. Teknik memasaknya melambangkan kesabaran dan kebersamaan. Rendang juga menjadi bagian penting dalam jamuan adat dan upacara.</p>
+    </div>
+  </div>
+
+  <!-- Dendeng Balado -->
+  <div class="overlay" id="note-dendeng" aria-hidden="true">
+    <div class="note" role="dialog" aria-labelledby="dendeng-title">
+      <button class="close-btn" onclick="closeAllNotes()">Tutup</button>
+      <img src="https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/07/31033559/Catat-Ini-Resep-dan-Cara-Membuat-Dendeng-Balodo-yang-Kering-dan-Renyah-.jpg" alt="Dendeng Balado">
+      <h3 id="dendeng-title">Dendeng Balado</h3>
+      <div class="meta">Kuliner — Minangkabau</div>
+      <p>Dendeng Balado adalah daging sapi tipis yang digoreng kering dan diberi sambal balado pedas. Tekstur renyah dipadukan rasa pedas manis menjadikannya favorit di banyak acara keluarga dan warung makan khas Minang.</p>
+    </div>
+  </div>
+
+  <!-- Sate Padang -->
+  <div class="overlay" id="note-satepadang" aria-hidden="true">
+    <div class="note" role="dialog" aria-labelledby="sate-title">
+      <button class="close-btn" onclick="closeAllNotes()">Tutup</button>
+      <img src="https://asset.kompas.com/crops/orQq3RlnkPNDfQgRASMWfCMppwg=/0x32:1000x699/1200x800/data/photo/2021/07/16/60f0d221ba7a6.jpeg" alt="Sate Padang">
+      <h3 id="sate-title">Sate Padang</h3>
+      <div class="meta">Kuliner — Sumatera Barat</div>
+      <p>Sate Padang terkenal dengan kuah kental bercita rasa rempah kuat. Potongan daging dibakar dan disajikan dengan kuah khas yang berbeda antara daerah satu dengan lainnya di Sumatera Barat.</p>
+    </div>
+  </div>
+
+  <script>
+    // Close any open notes and open the requested one
+    function openNote(key){
+      // close all first
+      document.querySelectorAll('.overlay').forEach(o => {
+        o.classList.remove('active');
+        o.setAttribute('aria-hidden','true');
+      });
+      // open target
+      const el = document.getElementById('note-' + key);
+      if(el){
+        el.classList.add('active');
+        el.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+        // focus for accessibility
+        const dialog = el.querySelector('.note');
+        if(dialog) dialog.focus();
+      }
+    }
+
+    function closeAllNotes(){
+      document.querySelectorAll('.overlay.active').forEach(o => {
+        o.classList.remove('active');
+        o.setAttribute('aria-hidden','true');
+      });
+      document.body.style.overflow = '';
+    }
+
+    // close on Esc
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        closeAllNotes();
+      }
+    });
+
+    // close when clicking overlay outside note
+    document.querySelectorAll('.overlay').forEach(overlay => {
+      overlay.addEventListener('click', function(e){
+        if(e.target === overlay) closeAllNotes();
+      });
+    });
+
+    // Image modal (existing)
+    function openModal(src){
+      const modal=document.createElement('div');
+      modal.style.position='fixed';
+      modal.style.inset=0;
+      modal.style.background='rgba(0,0,0,0.75)';
+      modal.style.display='flex';
+      modal.style.alignItems='center';
+      modal.style.justifyContent='center';
+      modal.style.zIndex=11000;
+      const img=document.createElement('img');
+      img.src=src;
+      img.style.maxWidth='90%';
+      img.style.maxHeight='90%';
+      img.style.borderRadius='8px';
+      modal.appendChild(img);
+      modal.onclick=()=>document.body.removeChild(modal);
+      document.body.appendChild(modal);
+    }
+  </script>
+</body>
+</html>
